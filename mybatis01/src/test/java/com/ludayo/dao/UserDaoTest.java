@@ -19,9 +19,9 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class UserDaoTest {
-    static InputStream  is;
-    static SqlSession sqlSession;
-    static UserDao userDao;
+    private InputStream  is;
+    private SqlSession sqlSession;
+    private UserDao userDao;
     @Before
     public void init() throws IOException {
         //1.读取配置文件
