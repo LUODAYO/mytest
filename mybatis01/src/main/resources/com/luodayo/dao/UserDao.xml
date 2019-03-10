@@ -9,8 +9,12 @@
     </select>
 
     <!--注册用户 并返回主键信息-->
-    <insert id="registerUser">
-        insert into users values(null,#{users.})
+    <insert id="registerUser" parameterType="com.ludayo.domain.Users">
+        -- 返回主键信息
+        <selectKey keyColumn="id" keyProperty="id" resultType="int">
+            select last_insert_id();
+        </selectKey>
+        insert into users values(null,#{username},#{birthday},#{sex},#{address})
     </insert>
 
     <!--通过id查找用户-->

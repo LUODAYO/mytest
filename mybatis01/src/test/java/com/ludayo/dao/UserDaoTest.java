@@ -37,6 +37,8 @@ public class UserDaoTest {
     }
     @After
     public void destory() throws IOException {
+        //事务提交
+        sqlSession.commit();
         //6.释放资源
         sqlSession.close();
         is.close();
@@ -44,6 +46,7 @@ public class UserDaoTest {
 
     @Test
     public void findAll() {
+
         //5.使用代理对象查询所有结果
         List<Users> all = userDao.findAll();
         for (Users user : all) {
@@ -62,6 +65,7 @@ public class UserDaoTest {
         users.setBirthday(format);
         users.setSex("female");
         userDao.registerUser(users);
+        System.out.println("向用户表中添加了一条新数据,新用户的id是:" +users.getId() );
     }
 
     @Test
