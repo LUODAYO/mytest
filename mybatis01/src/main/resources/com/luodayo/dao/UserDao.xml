@@ -7,8 +7,14 @@
     <select id="findAll" resultType="com.ludayo.domain.Users">
         select * from users
     </select>
-    <!--注册用户-->
+
+    <!--注册用户 并返回主键信息-->
     <insert id="registerUser">
         insert into users values(null,#{users.})
     </insert>
+
+    <!--通过id查找用户-->
+    <select id="findById" resultType="com.ludayo.domain.Users" parameterType="int">
+        select * from users where id=#{uid}
+    </select>
 </mapper>

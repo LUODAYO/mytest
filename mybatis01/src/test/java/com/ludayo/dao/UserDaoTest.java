@@ -63,4 +63,11 @@ public class UserDaoTest {
         users.setSex("female");
         userDao.registerUser(users);
     }
+
+    @Test
+    public void findById() {
+        int id=2;
+        Users byId = userDao.findById(id);
+        System.out.println("byId = " + byId);
+    }
 }

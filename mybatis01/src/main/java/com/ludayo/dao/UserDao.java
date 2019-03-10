@@ -16,4 +16,6 @@ public interface UserDao {
      * @param users
      */
     void registerUser(Users users);
+
+    Users findById(int id);
 }
